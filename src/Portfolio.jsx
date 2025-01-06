@@ -1,338 +1,288 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Smartphone, Terminal, Server, Code, Mail, Linkedin, Github, Cpu, Coffee, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Briefcase, Book, Code, User } from 'lucide-react';
 
 const Portfolio = () => {
+  const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
+  const skillsRef = useRef(null);
+  const educationRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
-    <div className="min-h-screen bg-[#1a1b2e]">
-      {/* Elementos decorativos de fondo */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        {/* Gradientes animados */}
-        <div className="absolute w-[800px] h-[800px] bg-purple-600/20 rounded-full filter blur-3xl -top-1/2 -right-1/4 animate-pulse" />
-        <div className="absolute w-[600px] h-[600px] bg-blue-500/20 rounded-full filter blur-3xl top-1/4 -left-1/4 animate-pulse delay-1000" />
-        <div className="absolute w-[700px] h-[700px] bg-cyan-500/20 rounded-full filter blur-3xl bottom-[-20%] right-[-10%] animate-pulse delay-2000" />
-        
-        {/* Grid de puntos */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.1)_1px,_transparent_1px)] bg-[length:30px_30px]" />
-        
-        {/* Líneas flotantes */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ x: -100, y: Math.random() * window.innerHeight }}
-              animate={{ 
-                x: window.innerWidth + 100,
-                y: Math.random() * window.innerHeight,
-              }}
-              transition={{
-                duration: 20 + Math.random() * 10,
-                repeat: Infinity,
-                delay: i * 2,
-              }}
-              className="absolute h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent w-[200px]"
-            />
-          ))}
-        </div>
-
-        {/* Elementos de móvil flotantes */}
-        <div className="hidden md:block">
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ 
-                x: Math.random() * window.innerWidth,
-                y: -100,
-                rotate: Math.random() * 360
-              }}
-              animate={{ 
-                y: window.innerHeight + 100,
-                rotate: Math.random() * 360
-              }}
-              transition={{
-                duration: 15 + Math.random() * 10,
-                repeat: Infinity,
-                delay: i * 5,
-              }}
-              className="absolute w-16 h-32 border-2 border-white/10 rounded-2xl opacity-20"
-            >
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-white/20 rounded-full" />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Indicador de scroll */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="fixed bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center"
-        >
-          <motion.div 
-            animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-2 h-2 bg-white/50 rounded-full mt-2"
-          />
-        </motion.div>
-        <span className="text-sm">Scroll</span>
-      </motion.div>
-
-      {/* Hero Section */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="relative min-h-screen"
-      >
-        <div className="container mx-auto py-20 px-4 md:px-8 max-w-7xl">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="w-full md:w-1/3 relative flex justify-center"
-            >
-              <div className="relative w-64 h-64 md:w-72 md:h-72">
-                {/* Marco de móvil decorativo */}
-                <div className="absolute -inset-8 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-[3rem] opacity-75 animate-pulse" />
-                <div className="absolute -inset-16 bg-gradient-to-r from-cyan-500 via-purple-500 to-blue-500 rounded-[4rem] opacity-30 animate-reverse-spin" />
-                <div className="relative rounded-[2rem] overflow-hidden border-4 border-white/10 h-full backdrop-blur-sm bg-[#1a1b2e]/80">
-                  {/* Notch del móvil */}
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-white/10 rounded-full backdrop-blur-md z-20" />
-                  {/* Botones laterales */}
-                  <div className="absolute right-[-4px] top-20 w-1 h-8 bg-white/20 rounded-l-lg" />
-                  <div className="absolute right-[-4px] top-32 w-1 h-8 bg-white/20 rounded-l-lg" />
-                  <div className="absolute left-[-4px] top-24 w-1 h-12 bg-white/20 rounded-r-lg" />
-                  <img
-                    src="/api/placeholder/500/500"
-                    alt="Profile"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Indicador de apps */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
-                    <div className="w-1 h-1 bg-white/50 rounded-full" />
-                    <div className="w-1 h-1 bg-white/30 rounded-full" />
-                    <div className="w-1 h-1 bg-white/30 rounded-full" />
-                    <div className="w-1 h-1 bg-white/30 rounded-full" />
-                  </div>
-                </div>
-                {/* Elementos flotantes */}
-                <motion.div
-                  animate={{
-                    rotate: [0, 360],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  className="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg opacity-60 blur-sm"
-                />
-                <motion.div
-                  animate={{
-                    rotate: [360, 0],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  className="absolute -bottom-10 -left-10 w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full opacity-60 blur-sm"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full md:w-1/2 space-y-8 text-center"
-            >
-              <h1 className="text-6xl font-bold">
-                <span className="bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Android Senior
-                </span>
-                <br />
-                <span className="text-white">Dev</span>
-              </h1>
-              <p className="text-xl text-gray-300">
-                Transformando ideas en experiencias móviles excepcionales
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                {[
-                  { name: 'Kotlin', icon: '🎯' },
-                  { name: 'Android', icon: '🤖' },
-                  { name: 'JNI', icon: '🔧' },
-                  { name: 'C', icon: '⚡' }
-                ].map((tech, index) => (
-                  <motion.span
-                    key={tech.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    whileHover={{ 
-                      scale: 1.05,
-                      backgroundColor: 'rgba(255,255,255,0.15)',
-                      transition: { duration: 0.2 }
-                    }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    className="px-6 py-3 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 text-gray-300 cursor-pointer transition-all duration-300 flex items-center gap-2"
-                  >
-                    <span className="text-xl">{tech.icon}</span>
-                    <span>{tech.name}</span>
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+      {/* Navbar */}
+      <nav className="fixed top-0 inset-x-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div className="w-full px-6">
+          <div className="flex justify-between items-center h-16">
+            <span className="text-2xl font-bold text-blue-600">GR</span>
+            <div className="flex gap-8">
+              {[
+                { ref: aboutRef, icon: User, label: 'Sobre mí' },
+                { ref: experienceRef, icon: Briefcase, label: 'Experiencia' },
+                { ref: skillsRef, icon: Code, label: 'Habilidades' },
+                { ref: educationRef, icon: Book, label: 'Educación' }
+              ].map(({ ref, icon: Icon, label }) => (
+                <button
+                  key={label}
+                  onClick={() => scrollToSection(ref)}
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg transition-colors hover:bg-blue-100 hover:text-blue-600"
+                >
+                  <Icon className="w-4 h-4" />
+                  <span className="hidden md:inline">{label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-      </motion.div>
+      </nav>
 
-      {/* Experience Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-4xl font-bold mb-12 text-center text-white"
-          >
-            Mi Trayectoria
-          </motion.h2>
+      {/* Hero Section - Full width */}
+      <motion.header 
+        className="w-full pt-32 pb-16 flex flex-col items-center justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <motion.div 
+          className="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mb-6 flex items-center justify-center"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring" }}
+        >
+          <span className="text-4xl font-bold text-white">GR</span>
+        </motion.div>
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 text-center">
+          Gonzalo Racero Galán
+        </h1>
+        <h2 className="text-xl md:text-2xl text-blue-600 mb-8 text-center">
+          Desarrollador Android Senior en Custos Mobile
+        </h2>
+        <div className="flex gap-6">
+          {[
+            { href: "mailto:gonzalo.racero.galan@icloud.com", icon: Mail },
+            { href: "tel:671309164", icon: Phone },
+            { href: "#", icon: Github },
+            { href: "#", icon: Linkedin }
+          ].map(({ href, icon: Icon }, index) => (
+            <motion.a
+              key={href}
+              href={href}
+              className="p-4 bg-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all"
+              whileHover={{ y: -5 }}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.1 * index }}
+            >
+              <Icon className="w-6 h-6 text-blue-600" />
+            </motion.a>
+          ))}
+        </div>
+      </motion.header>
 
-          <div className="space-y-8">
+      {/* Content Sections - Full width with padding */}
+      <div className="w-full px-6">
+        {/* About Section */}
+        <motion.section 
+          ref={aboutRef}
+          className="mb-16 scroll-mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+              <User className="w-6 h-6 text-blue-600" />
+              Sobre mí
+            </h3>
+            <div className="space-y-4 text-gray-600">
+              <p>Me he especializado en el mundo Android, dedicando gran parte de mi trayectoria profesional en él. 
+                 Sin embargo, también cuento con experiencia en el ecosistema iOS.</p>
+              <p>A través de los años, he explorado herramientas como Retrofit, ROOM, DaggerHilt, Flow & Coroutines, 
+                 Socket, Datastore Manager y cameraX. Recientemente, me he sumergido en Jetpack Compose.</p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Experience Section */}
+        <motion.section 
+          ref={experienceRef}
+          className="mb-16 scroll-mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: "Custos Mobile",
-                period: "2023 - Actual",
-                role: "Android Senior Developer",
-                description: "Desarrollo de soluciones de pago POS en Android",
-                skills: ["C/JNI", "AIDL", "Jetpack Compose"],
-                icon: <Terminal className="w-6 h-6" />,
-                gradient: "from-purple-500 to-blue-500"
+                title: "Desarrollador Android Senior",
+                company: "Custos Mobile",
+                period: "Oct 2023 - Presente",
+                description: "Desarrollo en Android de medios de pago POS y todo lo que ello implica (Programación en C, JNI, Servicios...)",
+                technologies: ["Android", "Kotlin", "C", "JNI", "AIDL"]
               },
               {
-                title: "ICP",
-                period: "2022 - 2023",
-                role: "Android & iOS Developer",
-                description: "Desarrollo de apps para gestión de almacenes",
-                skills: ["Android Room", "SDK", "Testing"],
-                icon: <Smartphone className="w-6 h-6" />,
-                gradient: "from-blue-500 to-cyan-500"
+                title: "Android & iOS Native Developer",
+                company: "ICP",
+                period: "Mar 2022 - Oct 2023",
+                description: "Desarrollo de aplicaciones orientadas a la gestión de almacenes, testing, mejoras y mantenimiento.",
+                technologies: ["Android", "iOS", "Kotlin", "Swift", "Room"]
               }
             ].map((job, index) => (
-              <motion.div
-                key={job.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.02 }}
-                className="relative"
-              >
-                <div className="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                  <div className="flex flex-col md:flex-row items-start gap-6">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${job.gradient} shrink-0`}>
-                      {job.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">{job.title}</h3>
-                      <p className="text-cyan-400">{job.period}</p>
-                      <p className="text-gray-300 mt-2">{job.description}</p>
-                      <div className="flex flex-wrap gap-3 mt-4">
-                        {job.skills.map((skill) => (
-                          <span key={skill} className="px-3 py-1 bg-white/5 rounded-full text-sm text-gray-300 border border-white/10">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-4xl font-bold mb-12 text-center text-white"
-          >
-            Stack Tecnológico
-          </motion.h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {[
-              { icon: <Smartphone />, title: "Android Nativo", gradient: "from-purple-500 to-blue-500" },
-              { icon: <Terminal />, title: "C / JNI", gradient: "from-blue-500 to-cyan-500" },
-              { icon: <Coffee />, title: "Kotlin", gradient: "from-cyan-500 to-purple-500" },
-              { icon: <Cpu />, title: "POS", gradient: "from-purple-500 to-cyan-500" },
-              { icon: <Server />, title: "Backend", gradient: "from-blue-500 to-purple-500" },
-              { icon: <Sparkles />, title: "UI/UX", gradient: "from-cyan-500 to-blue-500" }
-            ].map((skill, index) => (
-              <motion.div
-                key={skill.title}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-                transition={{ delay: index * 0.1 }}
-                className="relative group cursor-pointer"
-              >
-                <div className="p-8 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 group-hover:bg-white/10 transition-all duration-300">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className={`p-4 rounded-lg bg-gradient-to-br ${skill.gradient}`}>
-                      {skill.icon}
-                    </div>
-                    <h3 className="font-bold text-lg text-white">{skill.title}</h3>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <footer className="py-16 relative">
-        <div className="container mx-auto px-4 text-center">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-4xl font-bold mb-8 text-white"
-          >
-            ¿Hablamos?
-          </motion.h2>
-          
-          <div className="flex justify-center gap-6">
-            {[
-              { icon: <Mail />, href: "#", gradient: "from-purple-500 to-blue-500" },
-              { icon: <Linkedin />, href: "#", gradient: "from-blue-500 to-cyan-500" },
-              { icon: <Github />, href: "#", gradient: "from-cyan-500 to-purple-500" }
-            ].map((social, index) => (
-              <motion.a
+              <motion.div 
                 key={index}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                href={social.href}
-                className={`p-4 rounded-full bg-gradient-to-r ${social.gradient} hover:shadow-lg hover:shadow-white/10 transition-all duration-300`}
+                className="bg-white rounded-2xl shadow-xl p-8"
+                whileHover={{ y: -5 }}
               >
-                {social.icon}
-              </motion.a>
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-800">{job.title}</h4>
+                    <p className="text-blue-600">{job.company}</p>
+                  </div>
+                  <span className="text-gray-500">{job.period}</span>
+                </div>
+                <p className="text-gray-600 mb-4">{job.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {job.technologies.map((tech) => (
+                    <span 
+                      key={tech}
+                      className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </footer>
+        </motion.section>
+
+        {/* Skills Section */}
+        <motion.section 
+          ref={skillsRef}
+          className="mb-16 scroll-mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+              <Code className="w-6 h-6 text-blue-600" />
+              Habilidades Técnicas
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { name: 'Kotlin', level: 90 },
+                { name: 'Android', level: 95 },
+                { name: 'Jetpack Compose', level: 85 },
+                { name: 'Clean Architecture', level: 80 },
+                { name: 'MVVM', level: 85 },
+                { name: 'Testing', level: 75 },
+                { name: 'JNI', level: 70 },
+                { name: 'C', level: 65 }
+              ].map((tech, index) => (
+                <motion.div 
+                  key={tech.name}
+                  className="space-y-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="flex justify-between">
+                    <span className="font-medium text-gray-700">{tech.name}</span>
+                    <span className="text-blue-600">{tech.level}%</span>
+                  </div>
+                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <motion.div 
+                      className="h-full bg-blue-600 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${tech.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Education Section */}
+        <motion.section 
+          ref={educationRef}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-32 scroll-mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          {[
+            {
+              title: "Desarrollo de Aplicaciones Multiplataforma (DAM)",
+              school: "IES Villablanca",
+              period: "2020 - 2022",
+              grade: "10"
+            },
+            {
+              title: "Sistemas Microinformáticos y Redes (SMR)",
+              school: "IES Villablanca",
+              period: "2018 - 2020",
+              grade: "9"
+            }
+          ].map((edu, index) => (
+            <motion.div 
+              key={index}
+              className="bg-white rounded-2xl shadow-xl p-8"
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex justify-between items-start">
+                <div>
+                  <h4 className="text-xl font-semibold text-gray-800">{edu.title}</h4>
+                  <p className="text-blue-600">{edu.school}</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-gray-500">{edu.period}</span>
+                  <p className="text-green-600 font-semibold">Nota: {edu.grade}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.section>
+
+        {/* Footer */}
+        <footer className="w-full py-8 text-center border-t border-gray-200 mt-auto">
+          <div className="flex flex-col items-center justify-center space-y-4">
+            <motion.div 
+              className="flex items-center gap-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <span className="text-2xl font-bold text-blue-600">GR</span>
+              <span className="text-gray-500">|</span>
+              <span className="text-gray-600">Desarrollador Android Senior</span>
+            </motion.div>
+            <div className="flex gap-6">
+              <a href="mailto:gonzalo.racero.galan@icloud.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                <Mail className="w-5 h-5" />
+              </a>
+              <a href="tel:671309164" className="text-gray-600 hover:text-blue-600 transition-colors">
+                <Phone className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+            <p className="text-gray-500 text-sm">
+              © {new Date().getFullYear()} Gonzalo Racero Galán. Todos los derechos reservados.
+            </p>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 };
