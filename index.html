@@ -1,13 +1,511 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Gonzalo Racero Galán</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Cursor personalizado -->
+    <div class="custom-cursor"></div>
+    
+    <!-- Control para activar/desactivar el cursor -->
+    <div class="cursor-toggle" title="Activar/Desactivar cursor personalizado">
+        <i class="fas fa-mouse-pointer"></i>
+    </div>
+
+    <header>
+        <div class="parallax-bg">
+            <div class="parallax-shape" style="width: 300px; height: 300px; top: 20%; left: 5%;"></div>
+            <div class="parallax-shape" style="width: 200px; height: 200px; top: 60%; right: 10%;"></div>
+        </div>
+        <div class="container">
+            <div class="header-content">
+                <h1>Gonzalo Racero Galán</h1>
+                <h2>Desarrollador Android Senior</h2>
+                <div class="social-links">
+                    <a href="mailto:gonzaloracerogalan@hotmail.com" class="email-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/gonzalo-racero-galán-2a34631aa" class="linkedin-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav id="main-navbar" class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#certificaciones">Certificaciones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="sobre-mi" class="section">
+        <div class="floating-element" style="width: 350px; height: 350px; top: 10%; right: 0;"></div>
+        <div class="container">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Soy Gonzalo, desarrollador especializado en Android con experiencia en la creación de soluciones nativas.</p>
+                    <p>A lo largo de mi trayectoria he trabajado en proyectos que abarcan desde medios de pago hasta gestión de almacenes, integrando servicios y estableciendo comunicación interproceso mediante AIDL.</p>
+                    <p>Además, utilizo JNI para conectar eficientemente el código en Kotlin con componentes en C, optimizando el rendimiento en áreas críticas.</p>
+                    <p>He desarrollado aplicaciones que combinan la robustez de la capa de servicios con interfaces de usuario modernas, empleando herramientas como Jetpack Compose, Retrofit, Room, Dagger Hilt y Flow & Coroutines, entre otras.</p>
+                    <p>Si te interesa mi perfil, no dudes en contactarme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="section">
+        <div class="floating-element" style="width: 300px; height: 300px; bottom: 20%; left: 0;"></div>
+        <div class="container">
+            <h2 class="section-title">Experiencia Profesional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>Oct 2023 - Presente</span>
+                        <span>(1 año 6 meses)</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Desarrollador Android Senior</h3>
+                        <h4>Custos Mobile - Alcalá de Henares, Madrid</h4>
+                        <p>Responsable del desarrollo e integración de servicios Android para medios de pago, implementando comunicación interproceso entre aplicaciones y servicios, o entre los propios servicios (AIDL).</p>
+                        <p>Trabajo con SDKs de datafonos (Ingenico, Castles, entre otros).</p>
+                        <p>Tambien, utilizo JNI para conectar Kotlin y C para compatibilizar aplicaciones en ambos lenguajes.</p>
+                        <p>Por otra parte, no todo han sido servicios, cuando ha sido necesario, he trabajado en el apartado visual de las aplicaciones, haciendo uso de Jetpack Compose principalmente.</p>
+                        <p>Estas soluciones han contribuido a mejorar la escalabilidad del ecosistema de aplicaciones Android.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>Mar 2022 - Oct 2023</span>
+                        <span>(1 año 8 meses)</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Android & iOS native developer</h3>
+                        <h4>ICP - Meco, Madrid</h4>
+                        <p>Responsable del desarrollo, pruebas y mantenimiento de aplicaciones Android, orientadas principalmente a la gestión de almacenes, entre otros ámbitos. Durante esta etapa, me encargué de diseñar e implementar soluciones robustas y escalables, optimizando continuamente la experiencia del usuario y la eficiencia operativa.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>May 2020 - Jun 2020</span>
+                        <span>(2 meses)</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Becario</h3>
+                        <h4>Azulnet Soluciones Informaticas S.L. - Madrid</h4>
+                        <p>Durante mis prácticas de SMR, formé parte de un entorno IT en el que apliqué y amplié mis conocimientos. Me encargué del mantenimiento de equipos Windows, la gestión y personalización de WordPress, y realicé tareas básicas de desarrollo en PHP y maquetación web con HTML, CSS y JavaScript. Esta experiencia me permitió consolidar mi formación y adaptarme al dinámico mundo tecnológico.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="educacion" class="section">
+        <div class="floating-element" style="width: 250px; height: 250px; top: 30%; right: 0;"></div>
+        <div class="container">
+            <h2 class="section-title">Educación</h2>
+            <div class="education-cards">
+                <div class="education-card">
+                    <div class="education-year">2020 - 2022</div>
+                    <div class="education-content">
+                        <h3>Ciclo Formativo de Grado Superior</h3>
+                        <h4>Desarrollo de aplicaciones multiplataforma (DAM)</h4>
+                        <p>IES Villablanca</p>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-year">2018 - 2020</div>
+                    <div class="education-content">
+                        <h3>Ciclo Formativo de Grado Medio</h3>
+                        <h4>Sistemas microinformáticos y redes (SMR)</h4>
+                        <p>IES Villablanca</p>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-year">2012 - 2018</div>
+                    <div class="education-content">
+                        <h3>Educación Secundaria Obligatoria (ESO)</h3>
+                        <p>IES José Saramago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="section green-section">
+        <div class="container">
+            <h2 class="section-title light">Habilidades</h2>
+            
+            <div class="compact-skills">
+                <div class="skills-row">
+                    <h3>Lenguajes de Programación</h3>
+                    <div class="compact-skills-container">
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fab fa-android"></i>
+                                <span>Kotlin</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fab fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-code"></i>
+                                <span>C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-row">
+                    <h3>Tecnologías Android</h3>
+                    <div class="compact-skills-container">
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-palette"></i>
+                                <span>Jetpack Compose</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>AIDL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-cogs"></i>
+                                <span>JNI</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Retrofit</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-database"></i>
+                                <span>Room</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-syringe"></i>
+                                <span>Dagger Hilt</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-stream"></i>
+                                <span>Flow & Coroutines</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-layer-group"></i>
+                                <span>MVVM/Clean</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-compass"></i>
+                                <span>Navigation</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-tasks"></i>
+                                <span>WorkManager</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-save"></i>
+                                <span>DataStore</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-eye"></i>
+                                <span>LiveData</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>ViewModel</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-th-list"></i>
+                                <span>Paging</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-bezier-curve"></i>
+                                <span>Material Design</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-vial"></i>
+                                <span>Testing</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-fire"></i>
+                                <span>Firebase</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fab fa-bluetooth-b"></i>
+                                <span>Bluetooth/BLE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-row">
+                    <h3>Herramientas y Tecnologías Complementarias</h3>
+                    <div class="compact-skills-container">
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-terminal"></i>
+                                <span>Gradle</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-code-branch"></i>
+                                <span>CI/CD</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Análisis de Rendimiento</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-bug"></i>
+                                <span>Depuración</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>ProGuard</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compact-skill">
+                            <div class="compact-skill-header">
+                                <i class="fas fa-rocket"></i>
+                                <span>Google Play</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificaciones" class="section">
+        <div class="floating-element" style="width: 200px; height: 200px; top: 20%; right: 0;"></div>
+        <div class="container">
+            <h2 class="section-title">Certificaciones</h2>
+            <div class="certifications-grid">
+                <div class="certification-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Curso de PHP básico online</h3>
+                    <div class="cert-date">2019</div>
+                </div>
+                <div class="certification-item">
+                    <i class="fab fa-linux"></i>
+                    <h3>Linux Essentials (LE-1)</h3>
+                    <div class="cert-date">2020</div>
+                </div>
+                <div class="certification-item">
+                    <i class="fab fa-android"></i>
+                    <h3>Desarrollo de Aplicaciones Android</h3>
+                    <div class="cert-date">2021</div>
+                </div>
+                <div class="certification-item">
+                    <i class="fas fa-database"></i>
+                    <h3>SQL desde Cero</h3>
+                    <div class="cert-date">2020</div>
+                </div>
+                <div class="certification-item">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>MVC con C# Core y ASP.NET</h3>
+                    <div class="cert-date">2021</div>
+                </div>
+                <div class="certification-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Jetpack Compose para Android</h3>
+                    <div class="cert-date">2022</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <div class="floating-element" style="width: 250px; height: 250px; bottom: 15%; left: 0;"></div>
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-intro">
+                <p>¿Interesado en mi perfil? Me encantaría hablar sobre cómo puedo aportar valor a tu equipo o proyecto.</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Teléfono</h3>
+                        <p><a href="tel:+34671309164">671 309 164</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p><a href="mailto:gonzaloracerogalan@hotmail.com">gonzaloracerogalan@hotmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://www.linkedin.com/in/gonzalo-racero-galán-2a34631aa" target="_blank">Gonzalo Racero Galán</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-cta">
+                <a href="mailto:gonzaloracerogalan@hotmail.com" class="contact-button">
+                    <span>Escríbeme</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+                <a href="tel:+34671309164" class="contact-button phone">
+                    <span>Llámame</span>
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="green-footer">
+        <div class="footer-pattern"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <h3>Gonzalo Racero</h3>
+                        <span>Desarrollador Android Senior</span>
+                    </div>
+                    <p class="footer-tagline">Desarrollo de soluciones nativas con enfoque en rendimiento y experiencia de usuario.</p>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#sobre-mi">Sobre mí</a></li>
+                        <li><a href="#experiencia">Experiencia</a></li>
+                        <li><a href="#educacion">Educación</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#certificaciones">Certificaciones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Contacto</h4>
+                    <div class="footer-contact-links">
+                        <a href="tel:+34671309164" class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>671 309 164</span>
+                        </a>
+                        <a href="mailto:gonzaloracerogalan@hotmail.com" class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>gonzaloracerogalan@hotmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gonzalo-racero-galán-2a34631aa" target="_blank" class="footer-contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>Perfil LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gonzalo Racero Galán | Desarrollador Android Senior</p>
+                <div class="footer-shapes">
+                    <span class="footer-shape"></span>
+                    <span class="footer-shape"></span>
+                    <span class="footer-shape"></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para animaciones y efectos -->
+    <script src="script.js"></script>
+</body>
 </html>
